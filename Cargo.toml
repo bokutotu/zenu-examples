@@ -1,0 +1,7 @@
+[package]
+name = "zenu-test-proj"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+zenu = { git = "https://github.com/bokutotu/zenu", features = ["nvidia"] }
