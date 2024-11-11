@@ -1105,9 +1105,9 @@ dependencies = [
 
 [[package]]
 name = "regex-automata"
-version = "0.4.8"
+version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "368758f23274712b504848e9d5a6f010445cc8b87a7cdb4d7cbee666c1288da3"
+checksum = "809e8dc61f6de73b46c85f4c96486310fe304c434cfa43669d7b40f711150908"
 dependencies = [
  "aho-corasick",
  "memchr",
@@ -1193,9 +1193,9 @@ checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
 name = "rustix"
-version = "0.38.39"
+version = "0.38.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "375116bee2be9ed569afe2154ea6a99dfdffd257f533f187498c2a8f5feaf4ee"
+checksum = "99e4ea3e1cdc4b559b8e5650f9c8e5998e3e5c1343b4eaf034565f32318d63c0"
 dependencies = [
  "bitflags",
  "errno",
@@ -1295,9 +1295,9 @@ dependencies = [
 
 [[package]]
 name = "security-framework-sys"
-version = "2.12.0"
+version = "2.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ea4a292869320c0272d7bc55a5a6aafaff59b4f63404a003887b679a2e05b4b6"
+checksum = "fa39c7303dc58b5543c94d22c1766b0d31f2ee58306363ea622b10bbc075eaa2"
 dependencies = [
  "core-foundation-sys",
  "libc",
@@ -1485,18 +1485,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "1.0.68"
+version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "02dd99dc800bbb97186339685293e1cc5d9df1f8fae2d0aecd9ff1c77efea892"
+checksum = "b6aaf5339b578ea85b50e080feb250a3e8ae8cfcdff9a461c9ec2904bc923f52"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.68"
+version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7c61ec9a6f64d2793d8a45faba21efbe3ced62a886d44c36a009b2b519b4c7e"
+checksum = "4fee6c4efc90059e10f81e6d42c60a18f76588c3d74cb83a0b242a2b6c7504c1"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1956,7 +1956,7 @@ dependencies = [
 [[package]]
 name = "zenu"
 version = "0.1.1"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "bincode",
  "flate2",
@@ -1974,7 +1974,7 @@ dependencies = [
 [[package]]
 name = "zenu-autograd"
 version = "0.1.1"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "lazy_static",
  "once_cell",
@@ -1987,7 +1987,7 @@ dependencies = [
 [[package]]
 name = "zenu-cublas-sys"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "bindgen",
  "libc",
@@ -1997,7 +1997,7 @@ dependencies = [
 [[package]]
 name = "zenu-cuda"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "libc",
  "once_cell",
@@ -2011,7 +2011,7 @@ dependencies = [
 [[package]]
 name = "zenu-cuda-config"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "glob",
 ]
@@ -2019,7 +2019,7 @@ dependencies = [
 [[package]]
 name = "zenu-cuda-driver-sys"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "bindgen",
  "libc",
@@ -2029,7 +2029,7 @@ dependencies = [
 [[package]]
 name = "zenu-cuda-kernel-sys"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "bindgen",
  "cc",
@@ -2039,7 +2039,7 @@ dependencies = [
 [[package]]
 name = "zenu-cuda-runtime-sys"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "bindgen",
  "libc",
@@ -2049,7 +2049,7 @@ dependencies = [
 [[package]]
 name = "zenu-cudnn-sys"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "bindgen",
  "libc",
@@ -2057,9 +2057,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "zenu-example"
+version = "0.1.0"
+dependencies = [
+ "rand",
+ "rand_distr",
+ "zenu",
+]
+
+[[package]]
 name = "zenu-layer"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "rand",
  "rand_distr",
@@ -2070,7 +2079,7 @@ dependencies = [
 [[package]]
 name = "zenu-macros"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2080,10 +2089,11 @@ dependencies = [
 [[package]]
 name = "zenu-matrix"
 version = "0.1.1"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "cblas",
  "libc",
+ "num-traits",
  "once_cell",
  "openblas-src",
  "rand",
@@ -2095,18 +2105,11 @@ dependencies = [
 [[package]]
 name = "zenu-optimizer"
 version = "0.1.0"
-source = "git+https://github.com/bokutotu/zenu#c25714a7d1127cd277f1b2351c99607eadf529ef"
+source = "git+https://github.com/bokutotu/zenu#73493b088a4c7484fd267cbca0e8e7bcf274a6f2"
 dependencies = [
  "zenu-autograd",
  "zenu-layer",
  "zenu-matrix",
-]
-
-[[package]]
-name = "zenu-test-proj"
-version = "0.1.0"
-dependencies = [
- "zenu",
 ]
 
 [[package]]

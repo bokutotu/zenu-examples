@@ -4,7 +4,7 @@ use zenu::{
         loss::mse::mean_squared_error,
         Variable,
     },
-    layer::{Module, Parameters},
+    layer::Module,
     matrix::{device::Device, dim::DimDyn, num::Num},
     optimizer::{adam::Adam, Optimizer},
 };
@@ -50,10 +50,9 @@ impl<T: Num, D: Device> GanTrainer<T, D> {
 
         let loss = mean_squared_error(ans, dis_out);
         loss.backward();
-        self.generator_optimizer
-            .update(&self.generator.parameters());
+        self.generator_optimizer.update(&self.generator);
         loss.clear_grad();
-        loss.get_data().asum()
+        loss.get_as_ref().asum()
     }
 
     fn train_discriminator(&self, input: Variable<T, D>) -> T {
@@ -61,10 +60,9 @@ impl<T: Num, D: Device> GanTrainer<T, D> {
         let ans = zeros_like(&dis_out);
         let loss = mean_squared_error(ans, dis_out);
         loss.backward();
-        self.discriminator_optimizer
-            .update(&self.discriminator.parameters());
+        self.discriminator_optimizer.update(&self.discriminator);
         loss.clear_grad();
-        loss.get_data().asum()
+        loss.get_as_ref().asum()
     }
 
     pub fn train_one_step(&self, input: Variable<T, D>) -> (T, T) {

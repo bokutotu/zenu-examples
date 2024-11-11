@@ -1,5 +1,9 @@
+use rand_distr::{Distribution, StandardNormal};
 use zenu::{
-    autograd::Variable,
+    autograd::{
+        activation::{relu::relu, sigmoid::sigmoid},
+        Variable,
+    },
     layer::{layers::linear::Linear, Module},
     macros::Parameters,
     matrix::{device::Device, num::Num},
@@ -21,7 +25,11 @@ pub struct Discriminator<T: Num, D: Device> {
     pub linear3: Linear<T, D>,
 }
 
-impl<T: Num, D: Device> Generator<T, D> {
+impl<T: Num, D: Device> Generator<T, D>
+where
+    StandardNormal: Distribution<T>,
+{
+    #[must_use]
     pub fn new(input_size: usize, hidden_size: usize, output_size: usize) -> Self {
         Self {
             linear1: Linear::new(input_size, hidden_size, true),
@@ -31,7 +39,11 @@ impl<T: Num, D: Device> Generator<T, D> {
     }
 }
 
-impl<T: Num, D: Device> Discriminator<T, D> {
+impl<T: Num, D: Device> Discriminator<T, D>
+where
+    StandardNormal: Distribution<T>,
+{
+    #[must_use]
     pub fn new(input_size: usize, hidden_size: usize, output_size: usize) -> Self {
         Self {
             linear1: Linear::new(input_size, hidden_size, true),
@@ -44,25 +56,25 @@ impl<T: Num, D: Device> Discriminator<T, D> {
 impl<T: Num, D: Device> Module<T, D> for Generator<T, D> {
     type Input = Variable<T, D>;
     type Output = Variable<T, D>;
+
     fn call(&self, x: Self::Input) -> Self::Output {
-        let x = self.linear1.forward(x);
-        let x = x.relu();
-        let x = self.linear2.forward(&x);
-        let x = x.relu();
-        let x = self.linear3.forward(&x);
-        x.sigmoid()
+        let x = self.linear1.call(x);
+        let x = relu(x);
+        let x = self.linear2.call(x);
+        let x = relu(x);
+        self.linear3.call(x)
     }
 }
 
 impl<T: Num, D: Device> Module<T, D> for Discriminator<T, D> {
     type Input = Variable<T, D>;
     type Output = Variable<T, D>;
+
     fn call(&self, x: Self::Input) -> Self::Output {
-        let x = self.linear1.forward(x);
-        let x = x.relu();
-        let x = self.linear2.forward(&x);
-        let x = x.relu();
-        let x = self.linear3.forward(&x);
-        x.sigmoid()
+        let x = self.linear1.call(x);
+        let x = relu(x);
+        let x = self.linear2.call(x);
+        let x = self.linear3.call(x);
+        sigmoid(x)
     }
 }
