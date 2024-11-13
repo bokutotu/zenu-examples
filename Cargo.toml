@@ -7,3 +7,4 @@ edition = "2021"
 zenu = { git = "https://github.com/bokutotu/zenu", features = ["nvidia"] }
 rand = "0.8.5"
 rand_distr = "0.4.3"
+image = "0.23.14"

@@ -1,4 +1,6 @@
-use zenu::{dataset::DataLoader, dataset_loader::mnist_dataset, optimizer::adam::Adam};
+use image::{ImageBuffer, Luma};
+use zenu::matrix::device::cpu::Cpu;
+use zenu::{dataset::DataLoader, optimizer::adam::Adam};
 use zenu_example::gan_model::Discriminator;
 use zenu_example::{dataset::MnistDataset, gan_model::Generator, gan_train::GanTrainer};
 
@@ -6,8 +8,6 @@ fn main() {
     let batch_size = 64;
     let hidden_size = 128;
     let num_epochs = 100;
-
-    let mnist_data = mnist_dataset().unwrap();
 
     let generator = Generator::new(hidden_size, hidden_size, 28 * 28);
     let discriminator = Discriminator::new(28 * 28, hidden_size, 1);
@@ -23,12 +23,12 @@ fn main() {
         batch_size,
         hidden_size,
     );
+    let dataset = MnistDataset::new("mnist_train_flattened.txt");
 
     for epoch in 0..num_epochs {
         let mut gen_loss = 0.0;
         let mut disc_loss = 0.0;
-        let dataset = MnistDataset::new(mnist_data.clone().0.clone());
-        let mut dataloader = DataLoader::new(dataset, 64);
+        let mut dataloader = DataLoader::new(dataset.clone(), 64);
         dataloader.shuffle();
         let len = dataloader.len();
 
@@ -48,6 +48,23 @@ fn main() {
                     gen_loss / (i + 1) as f32
                 );
             }
+        }
+
+        if epoch % 2 == 0 {
+            let image = trainer.generate();
+            let image = image.to::<Cpu>();
+            let data = image.get_as_ref().reshape_new_matrix([28 * 28]);
+            let data = data.as_slice().to_vec();
+            let data = data
+                .into_iter()
+                .map(|x| ((x + 1.) * 127.5) as u8)
+                .collect::<Vec<u8>>();
+            let img_buffer: ImageBuffer<Luma<u8>, Vec<u8>> =
+                ImageBuffer::from_vec(28, 28, data).unwrap();
+            // if output is not exists
+            // create output directory
+            std::fs::create_dir_all("output").unwrap();
+            img_buffer.save(format!("output/{epoch}.png",)).unwrap();
         }
     }
 }
