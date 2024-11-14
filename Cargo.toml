@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-zenu = { git = "https://github.com/bokutotu/zenu", features = ["nvidia"] }
+zenu = { version = "*", features = ["nvidia"] }
 rand = "0.8.5"
 rand_distr = "0.4.3"
 image = "0.23.14"
